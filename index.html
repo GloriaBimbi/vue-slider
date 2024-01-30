@@ -17,6 +17,8 @@
           <div class="item">
             <img
               :src="slides[currentSlideIndex].image"
+              @mouseover="stopAutoplay()"
+              @mouseleave="startAutoplay()"
               alt="immagini da scorrere"
             />
             <div class="text">

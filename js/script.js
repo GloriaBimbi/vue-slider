@@ -3,6 +3,7 @@ const app = createApp({
   data() {
     return {
       currentSlideIndex: 0,
+      autoplay: false,
       slides: [
         {
           image: "img/01.webp",
@@ -51,11 +52,17 @@ const app = createApp({
     goToSlide(imageIndex) {
       this.currentSlideIndex = imageIndex;
     },
+    startAutoplay() {
+      this.autoplay = setInterval(() => {
+        this.nextSlide();
+      }, 3000);
+    },
+    stopAutoplay() {
+      clearInterval(this.autoplay);
+    },
   },
   mounted() {
-    setInterval(() => {
-      this.nextSlide();
-    }, 2000);
+    this.startAutoplay();
   },
 });
 
