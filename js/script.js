@@ -52,6 +52,11 @@ const app = createApp({
       this.currentSlideIndex = imageIndex;
     },
   },
+  mounted() {
+    setInterval(() => {
+      this.nextSlide();
+    }, 2000);
+  },
 });
 
 app.mount("#app");
