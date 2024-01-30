@@ -48,6 +48,9 @@ const app = createApp({
         this.currentSlideIndex--;
       }
     },
+    goToSlide(imageIndex) {
+      this.currentSlideIndex = imageIndex;
+    },
   },
 });
 

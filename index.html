@@ -32,8 +32,9 @@
               <img
                 v-for="(slide, index) in slides"
                 :src="slide.image"
-                alt="immagini da scorrere"
                 :class="index == currentSlideIndex ? 'active' : ''"
+                @click="goToSlide(index)"
+                alt="immagini da scorrere"
               />
             </div>
           </div>
