@@ -41,6 +41,13 @@ const app = createApp({
         this.currentSlideIndex++;
       }
     },
+    prevSlide() {
+      if (this.currentSlideIndex <= 0) {
+        this.currentSlideIndex = this.slides.length - 1;
+      } else {
+        this.currentSlideIndex--;
+      }
+    },
   },
 });
 
