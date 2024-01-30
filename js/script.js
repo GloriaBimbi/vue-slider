@@ -2,6 +2,7 @@ const { createApp } = Vue;
 const app = createApp({
   data() {
     return {
+      currentSlideIndex: 0,
       slides: [
         {
           image: "img/01.webp",
@@ -32,7 +33,15 @@ const app = createApp({
     };
   },
 
-  methods: {},
+  methods: {
+    nextSlide() {
+      if (this.currentSlideIndex >= this.slides.length - 1) {
+        this.currentSlideIndex = 0;
+      } else {
+        this.currentSlideIndex++;
+      }
+    },
+  },
 });
 
 app.mount("#app");

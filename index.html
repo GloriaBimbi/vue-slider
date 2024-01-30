@@ -15,21 +15,25 @@
       <div class="container">
         <div class="slider-wrapper" tabindex="0">
           <div class="item">
-            <img :src="slides[0].image" alt="immagini da scorrere" />
+            <img
+              :src="slides[currentSlideIndex].image"
+              alt="immagini da scorrere"
+            />
             <div class="text">
-              <h3>{{slides[0].title}}</h3>
-              <p>{{ slides[0].text}}</p>
+              <h3>{{slides[currentSlideIndex].title}}</h3>
+              <p>{{ slides[currentSlideIndex].text}}</p>
             </div>
           </div>
 
           <div class="thumbs">
             <div class="prev"></div>
-            <div class="next"></div>
+            <div class="next" @click="nextSlide()"></div>
             <div class="thumb">
               <img
-                v-for="slide in slides"
+                v-for="(slide, index) in slides"
                 :src="slide.image"
                 alt="immagini da scorrere"
+                :class="index == currentSlideIndex ? 'active' : ''"
               />
             </div>
           </div>
